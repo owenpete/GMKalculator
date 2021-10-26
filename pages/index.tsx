@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import buttonConfig from '../constants/calcButtonConfig';
-import Theme from '../types/theme';
+import Theme from '../types/Theme';
 import { calcMathString } from '../utils/engine';
 import { FiSliders } from 'react-icons/fi';
 import DropdownMenu from '../components/DropdownMenu';
@@ -40,14 +40,12 @@ const Index = () =>{
           className='index__switch-theme'
           onClick={(e: any)=>toggleMenu()}
         />
-        {isMenuOpen&&
-          <DropdownMenu
-            setIsMenuOpen={setIsMenuOpen}
-            setTheme={handleThemeChange}
-          />
-        }
       </div>
-
+        <DropdownMenu
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          setTheme={handleThemeChange}
+        />
       <Calculator
       />
     </div>

@@ -1,22 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import themeData from '../constants/themeData';
 import ThemeData from '../types/ThemeData';
 import Theme from '../types/Theme';
 import { FiX } from 'react-icons/fi';
 
 interface DropdownProps{
+  isMenuOpen: boolean;
   setIsMenuOpen: (arg: boolean)=>void;
   setTheme: (arg: Theme)=>void;
 }
 
 const DropdownMenu = (props: DropdownProps) =>{
+  const menuRef = useRef<any>();
   const themes: ThemeData[] = Object.values(themeData);
-  console.log(themes)
   const closeMenu = () =>{
     props.setIsMenuOpen(false);
   }
+  useEffect(()=>{
+    if(props.isMenuOpen){
+      menuRef.current.style.transform='translate(0, 0)'
+    }else{
+      menuRef.current.style.transform='translate(500px, 0)'
+    }
+  }, [props.isMenuOpen])
   return (
-    <ul className='dropdown__container'>
+    <ul className='dropdown__container' ref={menuRef}>
       <div
         className='dropdown__exit'
         onClick={(e: any)=>closeMenu()}
@@ -27,7 +35,6 @@ const DropdownMenu = (props: DropdownProps) =>{
       </div>
       {
         themes.map((value: {name: Theme, primaryColor: string}, index: number)=>{
-          console.log(value)
           return (
             <li
               className='dropdown__item'
