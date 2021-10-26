@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import '../styles/index.scss';
 import '../styles/calculator.scss';
+import '../styles/dropdownMenu.scss';
 import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {

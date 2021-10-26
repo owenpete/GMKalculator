@@ -1,4 +1,6 @@
 @use 'sass:math';
+@import '_themes.scss';
+
 $calc-height: 550px;
 $calc-width: math.div($calc-height, 1.5625);
 $calc-radius: 10px;
@@ -11,7 +13,7 @@ $display-height: math.div($calc-height, 5);
   position: relative;
   height: $calc-height;
   width: $calc-width;
-  background-color: gray;
+  background-color: var(--display);
   border-radius: $calc-radius;
 }
 
@@ -20,7 +22,7 @@ $display-height: math.div($calc-height, 5);
   align-items: center;
   min-height: $display-height;
   width: calc(100% + 2px);
-  background-color: black;
+  background-color: var(--display);
   border-radius: $calc-radius $calc-radius 0 0 ;
   padding: 1.5rem;
   .display__value{
@@ -57,9 +59,6 @@ $display-height: math.div($calc-height, 5);
   box-shadow: 0 0 0 1px black;
   height: math.div($calc-height - $display-height, 5);
   transition: all 100ms ease-in-out;
-  &:active{
-    background-color: green;
-  }
   &--1{
     width: math.div($calc-width, 4);
   }
@@ -67,23 +66,24 @@ $display-height: math.div($calc-height, 5);
     width: math.div($calc-width, 4)*2;
   }
   &--general{
-    color: white;
-    background-color: #222222;
+    color: var(--generalText);
+    background-color: var(--generalColor);
     &:active{
-      background-color: #2f2f2f;
+      background-color: var(--generalColorActive);
     }
   }
   &--primaryOp{
-    color: white;
-    background-color: #7b9c98;
+    color: var(--primaryText);
+    background-color: var(--primaryColor);
     &:active{
-      background-color: #6c8a86;
+      background-color: var(--primaryColorActive);
     }
   }
   &--secondaryOp{
-    background-color: #f0f0f0;
+    color: var(--secondaryText);
+    background-color: var(--secondaryColor);
     &:active{
-      background-color: #dedede;
+      background-color: var(--secondaryColorActive);
     }
   }
 }

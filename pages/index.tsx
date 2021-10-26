@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import buttonConfig from '../constants/calcButtonConfig';
+import Theme from '../types/theme';
 import { calcMathString } from '../utils/engine';
+import { FiSliders } from 'react-icons/fi';
+import DropdownMenu from '../components/DropdownMenu';
 
 interface CalcButton {
   symbol: string;
@@ -11,8 +14,40 @@ interface CalcButton {
 }
 
 const Index = () =>{
+  const [theme, setTheme] = useState<Theme>('botanical');
+  const [prevTheme, setPrevTheme] = useState<Theme>(theme);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  useEffect(()=>{
+    document.body.classList.add(theme);
+  }, [])
+  useEffect(()=>{
+    document.body.classList.replace(prevTheme, theme);
+    setPrevTheme(theme);
+  }, [theme]);
+
+  const toggleMenu = () =>{
+    setIsMenuOpen(true);
+  }
+
+  const handleThemeChange = (theme: Theme) =>{
+    setTheme(theme);
+  }
+
   return (
     <div className='index__container'>
+      <div className='menu__container'>
+        <FiSliders
+          className='index__switch-theme'
+          onClick={(e: any)=>toggleMenu()}
+        />
+        {isMenuOpen&&
+          <DropdownMenu
+            setIsMenuOpen={setIsMenuOpen}
+            setTheme={handleThemeChange}
+          />
+        }
+      </div>
+
       <Calculator
       />
     </div>
