@@ -1,0 +1,85 @@
+@use 'sass:math';
+$calc-height: 600px;
+$calc-width: 400px;
+$calc-radius: 10px;
+$display-height: math.div($calc-height, 5);
+
+.calc{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: $calc-height;
+  width: $calc-width;
+  background-color: gray;
+  border-radius: $calc-radius;
+}
+
+.calc__display{
+  display: flex;
+  align-items: center;
+  min-height: $display-height;
+  width: 100%;
+  background-color: black;
+  border-radius: $calc-radius $calc-radius 0 0 ;
+  padding: 1.5rem;
+  .display__value{
+    font-size: 23px;
+    color: white;
+    width: 100%;
+    text-align: right;
+  }
+}
+
+.calc__row1,
+.calc__row2,
+.calc__row3,
+.calc__row4,
+.calc__row5{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.calc__row5 input:first-child{
+  border-radius: 0 0 0 $calc-radius;
+}
+.calc__row5 input:last-child{
+  border-radius: 0 0 $calc-radius 0;
+}
+
+.calc__input{
+  font-size: 24px;
+  text-align: center;
+  border: none;
+  height: math.div($calc-height - $display-height, 5);
+  &:active{
+    background-color: green;
+  }
+  &--1{
+    width: math.div($calc-width, 4);
+  }
+  &--2{
+    width: math.div($calc-width, 4)*2;
+  }
+  &--general{
+    color: white;
+    background-color: #222222;
+    &:active{
+      background-color: #393838;
+    }
+  }
+  &--primaryOp{
+    background-color: #ffb294;
+    &:active{
+      background-color: #ff976e;
+    }
+  }
+  &--secondaryOp{
+    background-color: #d9d9d9;
+    &:active{
+      background-color: #b9b9b9;
+    }
+  }
+}
