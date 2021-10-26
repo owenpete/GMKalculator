@@ -60,13 +60,16 @@ const Calculator = () =>{
     const handleButtonClick = (event: any, actionType: string, action: string, buttonClass: string) =>{
       // mutable variable for the display value
       let localDisplay = display;
+      const lastCharIndex = localDisplay.length-1;
+      const lastChar = localDisplay[lastCharIndex];
+      const isLastCharPrimary: boolean = primaryOps.includes(lastChar);
       if(localDisplay == 'ERROR'){
         localDisplay = "0";
       }
       if(buttonClass == 'general'){
         if(localDisplay == '0'){
           setDisplay(action)
-        }else{
+        }else if(!(lastChar == '.' && action == '.')){
           setDisplay(localDisplay+action);
         }
       }else if(buttonClass == 'secondaryOp'){
@@ -78,9 +81,6 @@ const Calculator = () =>{
           setDisplay((parseInt(calcMathString(localDisplay))*0.01).toString());
         }
       }else if(buttonClass == 'primaryOp'){
-        const lastCharIndex = localDisplay.length-1;
-        const lastChar = localDisplay[lastCharIndex];
-        const isLastCharPrimary: boolean = primaryOps.includes(lastChar);
         if(!isLastCharPrimary){
           if(actionType == 'devide'){
             setDisplay(localDisplay+'/');
