@@ -1,6 +1,6 @@
 @use 'sass:math';
-$calc-height: 600px;
-$calc-width: 400px;
+$calc-height: 550px;
+$calc-width: math.div($calc-height, 1.5625);
 $calc-radius: 10px;
 $display-height: math.div($calc-height, 5);
 
