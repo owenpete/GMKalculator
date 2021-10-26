@@ -58,48 +58,53 @@ const Calculator = () =>{
     }
 
     const handleButtonClick = (event: any, actionType: string, action: string, buttonClass: string) =>{
+      // mutable variable for the display value
+      let localDisplay = display;
+      if(localDisplay == 'ERROR'){
+        localDisplay = "0";
+      }
       if(buttonClass == 'general'){
-        if(display == '0'){
+        if(localDisplay == '0'){
           setDisplay(action)
         }else{
-          setDisplay(display+action);
+          setDisplay(localDisplay+action);
         }
       }else if(buttonClass == 'secondaryOp'){
         if(actionType == 'clear'){
           setDisplay('0');
         }else if(actionType == 'plus-minus'){
-          setDisplay((calcMathString(display)*-1).toString());
+          setDisplay((parseInt(calcMathString(localDisplay))*-1).toString());
         }else if(actionType == 'percentageConversion'){
-          setDisplay((calcMathString(display)*0.01).toString());
+          setDisplay((parseInt(calcMathString(localDisplay))*0.01).toString());
         }
       }else if(buttonClass == 'primaryOp'){
-        const lastCharIndex = display.length-1;
-        const lastChar = display[lastCharIndex];
+        const lastCharIndex = localDisplay.length-1;
+        const lastChar = localDisplay[lastCharIndex];
         const isLastCharPrimary: boolean = primaryOps.includes(lastChar);
         if(!isLastCharPrimary){
           if(actionType == 'devide'){
-            setDisplay(display+'/');
+            setDisplay(localDisplay+'/');
           }else if(actionType == 'multiply'){
-            setDisplay(display+'*');
+            setDisplay(localDisplay+'*');
           }else if(actionType == 'subtract'){
-            setDisplay(display+'-');
+            setDisplay(localDisplay+'-');
           }else if(actionType == 'add'){
-            setDisplay(display+'+');
+            setDisplay(localDisplay+'+');
           }else if(actionType == 'equals'){
-            setDisplay(calcMathString(display).toString());
+            setDisplay(calcMathString(localDisplay).toString());
           }
         }else if(isLastCharPrimary && lastChar!=action && lastChar != '='){
           if(actionType == 'devide'){
-            setDisplay(display.slice(0, lastCharIndex)+'/');
+            setDisplay(localDisplay.slice(0, lastCharIndex)+'/');
           }else if(actionType == 'multiply'){
-            setDisplay(display+'*');
-            setDisplay(display.slice(0, lastCharIndex)+'*');
+            setDisplay(localDisplay+'*');
+            setDisplay(localDisplay.slice(0, lastCharIndex)+'*');
           }else if(actionType == 'subtract'){
-            setDisplay(display+'-');
-            setDisplay(display.slice(0, lastCharIndex)+'-');
+            setDisplay(localDisplay+'-');
+            setDisplay(localDisplay.slice(0, lastCharIndex)+'-');
           }else if(actionType == 'add'){
-            setDisplay(display+'+');
-            setDisplay(display.slice(0, lastCharIndex)+'+');
+            setDisplay(localDisplay+'+');
+            setDisplay(localDisplay.slice(0, lastCharIndex)+'+');
           }
         }
       }else{

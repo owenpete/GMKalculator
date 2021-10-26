@@ -1,6 +1,10 @@
 import { evaluate } from 'mathjs';
 
-export const calcMathString = (mathString: string): number =>{
-  const answer: number = evaluate(mathString);
-  return answer;
+export const calcMathString = (mathString: string): string =>{
+  try{
+    const answer: string = evaluate(mathString).toString();
+    return answer;
+  }catch(err: any){
+    return "ERROR"
+  }
 }
