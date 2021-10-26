@@ -14,9 +14,9 @@ const config = {
       width: 1,
       buttonClass: 'secondaryOp'
     },
-    'precentage' : {
+    'percentage' : {
       symbol: '%',
-      actionType: 'precentageConversion',
+      actionType: 'percentageConversion',
       action: '/100',
       width: 1,
       buttonClass: 'secondaryOp'
@@ -81,10 +81,10 @@ const config = {
       width: 1,
       buttonClass: 'general'
     },
-    'minus' : {
-      symbol: '÷',
-      actionType: 'devide',
-      action: '/',
+    'subtract' : {
+      symbol: '-',
+      actionType: 'subtract',
+      action: '-',
       width: 1,
       buttonClass: 'primaryOp'
     },
@@ -111,9 +111,9 @@ const config = {
       width: 1,
       buttonClass: 'general'
     },
-    'plus' : {
+    'add' : {
       symbol: '+',
-      actionType: 'plus',
+      actionType: 'add',
       action: '+',
       width: 1,
       buttonClass: 'primaryOp'
