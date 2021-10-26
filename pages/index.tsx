@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import buttonConfig from '../constants/calcButtonConfig';
+import { calcMathString } from '../utils/engine';
 
 interface CalcButton {
   symbol: string;

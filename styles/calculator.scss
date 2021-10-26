@@ -53,6 +53,7 @@ $display-height: math.div($calc-height, 5);
   font-size: 28px;
   text-align: center;
   border: none;
+  outline: none;
   box-shadow: 0 0 0 1px black;
   height: math.div($calc-height - $display-height, 5);
   transition: all 100ms ease-in-out;
