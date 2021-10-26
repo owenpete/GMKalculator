@@ -50,10 +50,11 @@ $display-height: math.div($calc-height, 5);
 }
 
 .calc__input{
-  font-size: 24px;
+  font-size: 28px;
   text-align: center;
   border: none;
   height: math.div($calc-height - $display-height, 5);
+  transition: all 100ms ease-in-out;
   &:active{
     background-color: green;
   }
@@ -67,19 +68,20 @@ $display-height: math.div($calc-height, 5);
     color: white;
     background-color: #222222;
     &:active{
-      background-color: #393838;
+      background-color: #2f2f2f;
     }
   }
   &--primaryOp{
-    background-color: #ffb294;
+    color: white;
+    background-color: #7b9c98;
     &:active{
-      background-color: #ff976e;
+      background-color: #6c8a86;
     }
   }
   &--secondaryOp{
-    background-color: #d9d9d9;
+    background-color: #f0f0f0;
     &:active{
-      background-color: #b9b9b9;
+      background-color: #dedede;
     }
   }
 }
