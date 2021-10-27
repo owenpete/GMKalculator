@@ -44,6 +44,19 @@ body.botanical{
   --generalText: #ffffff;
 }
 
+body.laser{
+  --display: var(--displayColor);
+  --primaryColor: #f51e67;
+  --primaryColorActive: #6c8a86;
+  --secondaryColor: #23194d;
+  --secondaryColorActive: #dedede;
+  --generalColor: #331881;
+  --generalColorActive: #2f2f2f;
+  --primaryText: #ffffff;
+  --secondaryText: #ffffff;
+  --generalText: #ffffff;
+}
+
 body.mizu{
   --display: var(--displayColor);
   --primaryColor: #b1cdde;

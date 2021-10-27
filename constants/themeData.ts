@@ -11,6 +11,11 @@ const themes: any = {
     id: 'botanical',
     primaryColor: '#7b9c98'
   },
+  laser: {
+    name: 'laser',
+    id: 'laser',
+    primaryColor: '#331881'
+  },
   mizu: {
     name: 'mizu',
     id: 'mizu',
