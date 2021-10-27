@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import buttonConfig from '../constants/calcButtonConfig';
 import Theme from '../types/Theme';
 import { calcMathString } from '../utils/engine';
-import { FiSliders } from 'react-icons/fi';
+import { FiSliders, FiSun, FiMoon } from 'react-icons/fi';
 import DropdownMenu from '../components/DropdownMenu';
 
 interface CalcButton {
@@ -16,6 +16,7 @@ interface CalcButton {
 const Index = () =>{
   const [theme, setTheme] = useState<Theme>('botanical');
   const [prevTheme, setPrevTheme] = useState<Theme>(theme);
+  const [mode, setMode] = useState<'dark' | 'light'>('dark');
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   useEffect(()=>{
     document.body.classList.add(theme);
@@ -24,9 +25,23 @@ const Index = () =>{
     document.body.classList.replace(prevTheme, theme);
     setPrevTheme(theme);
   }, [theme]);
+  useEffect(()=>{
+    if(!document.body.classList.contains('light') || !document.body.classList.contains('dark')){
+      document.body.classList.add(mode);
+    }
+    else if(mode == 'dark'){
+      document.body.classList.replace('light', 'dark');
+    }else{
+      document.body.classList.replace('dark', 'light');
+    }
+  }, [mode]);
 
   const toggleMenu = () =>{
     setIsMenuOpen(true);
+  }
+
+  const toggleMode = () =>{
+    setMode(mode=='dark'?'light':'dark');
   }
 
   const handleThemeChange = (theme: Theme) =>{
@@ -35,9 +50,21 @@ const Index = () =>{
 
   return (
     <div className='index__container'>
-      <div className='menu__container'>
+      <div className='settings__container'>
+          {
+            mode=='dark'?
+              <FiMoon
+                className='settings__moon-icon'
+                onClick={(e: any)=>toggleMode()}
+              />
+              :
+              <FiSun
+                className='settings__sun-icon'
+                onClick={(e: any)=>toggleMode()}
+              />
+          }
         <FiSliders
-          className='index__switch-theme'
+          className='settings__switch-theme'
           onClick={(e: any)=>toggleMenu()}
         />
       </div>

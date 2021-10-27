@@ -6,13 +6,19 @@
   height: 100%;
 }
 
-.menu__container{
+.settings__container{
   position: absolute;
   top: 0;
   right: 0;
   margin: 3rem 3rem 0 0;
 }
 
-.index__switch-theme{
-  font-size: 28px;
+.settings__moon-icon, .settings__sun-icon, .settings__switch-theme{
+  cursor: pointer;
+  font-size: 36px;
+  padding: 0.25rem;
+}
+
+.settings__moon-icon, .settings__sun-icon{
+  margin-right: 1rem;
 }

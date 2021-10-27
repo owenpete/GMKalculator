@@ -1,3 +1,21 @@
+body{
+  transition: background 200ms ease-in-out;
+}
+
+body.dark{
+  background-color: #2b2b2b;
+  .settings__switch-theme, .settings__moon-icon{
+    color: #ffffff;
+  }
+}
+
+body.light{
+  background-color: #f4f4f4;
+  .settings__switch-theme, .settings__sun-icon{
+    color: #000000;
+  }
+}
+
 body.botanical{
   --display: #171717;
   --primaryColor: #7b9c98;
