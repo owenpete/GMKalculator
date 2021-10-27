@@ -15,6 +15,7 @@ $display-height: math.div($calc-height, 5);
   width: $calc-width;
   background-color: var(--display);
   border-radius: $calc-radius;
+  transition: box-shadow 200ms ease-in-out;
 }
 
 .calc__display{

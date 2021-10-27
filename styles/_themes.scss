@@ -9,12 +9,18 @@ body.dark{
   .settings__switch-theme, .settings__moon-icon{
     color: #ffffff;
   }
+  .calc{
+    box-shadow: -10px 5px 5px #232323;
+  }
 }
 
 body.light{
   background-color: #f4f4f4;
   .settings__switch-theme, .settings__sun-icon{
     color: #000000;
+  }
+  .calc{
+    box-shadow: -10px 5px 5px #c3c3c3;
   }
 }
 
