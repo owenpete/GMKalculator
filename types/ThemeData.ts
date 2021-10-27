@@ -1,7 +1,8 @@
 import Theme from '../types/Theme';
 
 interface ThemeData{
-  name: Theme;
+  name: string;
+  id: Theme;
   primaryColor: string;
 }
 

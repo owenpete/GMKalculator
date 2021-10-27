@@ -39,7 +39,7 @@ const DropdownMenu = (props: DropdownProps) =>{
             <li
               className='dropdown__item'
               key={index}
-              onClick={(e: any)=>props.setTheme(value.name)}
+              onClick={(e: any)=>props.setTheme(value.id)}
             >
               <span
                 className='dropdown__color-icon'
